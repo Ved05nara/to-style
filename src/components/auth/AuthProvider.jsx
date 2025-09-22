@@ -1,25 +1,6 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
-export type UserRole = 'guest' | 'staff' | 'management';
-
-export interface User {
-  id: string;
-  email: string;
-  name: string;
-  role: UserRole;
-  hotelId?: string; // For staff and management
-}
-
-interface AuthContextType {
-  user: User | null;
-  isAuthenticated: boolean;
-  login: (email: string, password: string, role: UserRole) => Promise<void>;
-  register: (email: string, password: string, name: string, role: UserRole) => Promise<void>;
-  logout: () => void;
-  loading: boolean;
-}
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext(undefined);
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -29,12 +10,8 @@ export const useAuth = () => {
   return context;
 };
 
-interface AuthProviderProps {
-  children: ReactNode;
-}
-
-export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [user, setUser] = useState<User | null>(null);
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -51,13 +28,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setLoading(false);
   }, []);
 
-  const login = async (email: string, password: string, role: UserRole) => {
+  const login = async (email, password, role) => {
     setLoading(true);
     try {
       // Mock authentication - in real app, this would be an API call
       await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API delay
       
-      const mockUser: User = {
+      const mockUser = {
         id: `user_${Date.now()}`,
         email,
         name: email.split('@')[0], // Use email prefix as name for demo
@@ -74,13 +51,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
-  const register = async (email: string, password: string, name: string, role: UserRole) => {
+  const register = async (email, password, name, role) => {
     setLoading(true);
     try {
       // Mock registration - in real app, this would be an API call
       await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API delay
       
-      const mockUser: User = {
+      const mockUser = {
         id: `user_${Date.now()}`,
         email,
         name,
@@ -102,7 +79,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     localStorage.removeItem('guestHub_user');
   };
 
-  const value: AuthContextType = {
+  const value = {
     user,
     isAuthenticated: !!user,
     login,

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useAuth, UserRole } from "@/components/auth/AuthProvider";
+import { useAuth } from "@/components/auth/AuthProvider";
 import { useToast } from "@/hooks/use-toast";
 import { Hotel, Loader2, User, Users, BarChart3 } from "lucide-react";
 import { 
@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/select";
 
 export default function AuthPage() {
-  const { mode } = useParams<{ mode: 'login' | 'register' }>();
+  const { mode } = useParams();
   const isLogin = mode === 'login';
   const navigate = useNavigate();
   const { login, register, loading } = useAuth();
@@ -26,7 +26,7 @@ export default function AuthPage() {
     email: '',
     password: '',
     name: '',
-    role: 'guest' as UserRole,
+    role: 'guest',
   });
 
   const roleOptions = [
@@ -35,7 +35,7 @@ export default function AuthPage() {
     { value: 'management', label: 'Management', icon: BarChart3, description: 'Oversee hotel operations' },
   ];
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     try {
@@ -70,7 +70,7 @@ export default function AuthPage() {
     }
   };
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
