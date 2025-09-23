@@ -8,7 +8,7 @@ import { useAuth } from "@/components/auth/AuthProvider";
 import { Hotel } from "lucide-react";
 
 const AuthPage = () => {
-  const { mode } = useParams<{ mode: string }>();
+  const { mode } = useParams();
   const { login, register, isAuthenticated } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +21,7 @@ const AuthPage = () => {
     return <Navigate to="/" replace />;
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (isLogin) {

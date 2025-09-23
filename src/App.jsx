@@ -25,9 +25,6 @@ const AppContent = () => {
   const ProtectedRoute = ({ 
     children, 
     allowedRoles 
-  }: { 
-    children: React.ReactNode;
-    allowedRoles: string[];
   }) => {
     if (!isAuthenticated) {
       return <Navigate to="/auth/login" replace />;

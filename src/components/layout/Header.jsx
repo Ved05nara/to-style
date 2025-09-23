@@ -2,13 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Hotel, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
 
-interface HeaderProps {
-  isAuthenticated: boolean;
-  userRole: string | null;
-  onLogout: () => void;
-}
-
-export const Header = ({ isAuthenticated, userRole, onLogout }: HeaderProps) => {
+export const Header = ({ isAuthenticated, userRole, onLogout }) => {
   const getDashboardRoute = () => {
     switch (userRole) {
       case 'guest': return '/guest/dashboard';

@@ -1,21 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-interface User {
-  id: string;
-  email: string;
-  role: 'guest' | 'staff' | 'management';
-  name: string;
-}
-
-interface AuthContextType {
-  user: User | null;
-  isAuthenticated: boolean;
-  login: (email: string, password: string) => Promise<void>;
-  logout: () => void;
-  register: (email: string, password: string, name: string, role: string) => Promise<void>;
-}
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext(undefined);
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -25,8 +10,8 @@ export const useAuth = () => {
   return context;
 };
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
@@ -37,8 +22,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
-  const login = async (email: string, password: string) => {
-    const mockUser: User = {
+  const login = async (email, password) => {
+    const mockUser = {
       id: '1',
       email,
       role: email.includes('guest') ? 'guest' : email.includes('staff') ? 'staff' : 'management',
@@ -50,11 +35,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem('user', JSON.stringify(mockUser));
   };
 
-  const register = async (email: string, password: string, name: string, role: string) => {
-    const mockUser: User = {
+  const register = async (email, password, name, role) => {
+    const mockUser = {
       id: Date.now().toString(),
       email,
-      role: role as 'guest' | 'staff' | 'management',
+      role: role,
       name
     };
     
