@@ -18,7 +18,13 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 // Protected Route Component
-const ProtectedRoute = ({ children, allowedRoles }) => {
+const ProtectedRoute = ({ 
+  children, 
+  allowedRoles 
+}: { 
+  children: React.ReactNode;
+  allowedRoles: string[];
+}) => {
   const { user, isAuthenticated } = useAuth();
   
   if (!isAuthenticated) {

@@ -15,11 +15,27 @@ import {
   Settings
 } from "lucide-react";
 
+interface KPICard {
+  title: string;
+  value: string;
+  change: string;
+  trend: 'up' | 'down';
+  icon: React.ElementType;
+}
+
+interface RecentActivity {
+  id: string;
+  message: string;
+  time: string;
+  type: 'booking' | 'staff' | 'maintenance' | 'guest';
+  priority?: 'low' | 'medium' | 'high';
+}
+
 export default function ManagementDashboard() {
   const { user } = useAuth();
 
   // Mock data - in real app, this would come from API
-  const kpis = [
+  const kpis: KPICard[] = [
     {
       title: 'Total Revenue',
       value: '$124,580',
@@ -64,7 +80,7 @@ export default function ManagementDashboard() {
     }
   ];
 
-  const recentActivity = [
+  const recentActivity: RecentActivity[] = [
     {
       id: '1',
       message: 'New booking: Premium Suite for 3 nights',

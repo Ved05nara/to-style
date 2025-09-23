@@ -20,11 +20,17 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 
-export const Header = ({ isAuthenticated = false, userRole = null, onLogout }) => {
+interface HeaderProps {
+  isAuthenticated?: boolean;
+  userRole?: 'guest' | 'staff' | 'management' | null;
+  onLogout?: () => void;
+}
+
+export const Header = ({ isAuthenticated = false, userRole = null, onLogout }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleNavigation = (path) => {
+  const handleNavigation = (path: string) => {
     navigate(path);
     setIsMobileMenuOpen(false);
   };

@@ -17,12 +17,25 @@ import {
   Phone
 } from "lucide-react";
 
+interface Task {
+  id: string;
+  type: 'housekeeping' | 'maintenance' | 'guest_service' | 'front_desk';
+  title: string;
+  description: string;
+  room?: string;
+  priority: 'low' | 'medium' | 'high' | 'urgent';
+  status: 'pending' | 'in_progress' | 'completed';
+  assignedTo: string;
+  dueTime: string;
+  estimatedDuration: number; // in minutes
+}
+
 export default function StaffDashboard() {
   const { user } = useAuth();
-  const [selectedFilter, setSelectedFilter] = useState('all');
+  const [selectedFilter, setSelectedFilter] = useState<string>('all');
 
   // Mock data - in real app, this would come from API
-  const tasks = [
+  const tasks: Task[] = [
     {
       id: 'task_001',
       type: 'housekeeping',
@@ -104,7 +117,7 @@ export default function StaffDashboard() {
     ? tasks 
     : tasks.filter(task => task.type === selectedFilter);
 
-  const updateTaskStatus = (taskId, newStatus) => {
+  const updateTaskStatus = (taskId: string, newStatus: Task['status']) => {
     // In real app, this would be an API call
     console.log(`Updating task ${taskId} to status ${newStatus}`);
   };
