@@ -17,28 +17,30 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Protected Route Component
+const ProtectedRoute = ({ 
+  children, 
+  allowedRoles 
+}: { 
+  children: React.ReactNode;
+  allowedRoles: string[];
+}) => {
+  const { user, isAuthenticated } = useAuth();
+  
+  if (!isAuthenticated) {
+    return <Navigate to="/auth/login" replace />;
+  }
+  
+  if (user && !allowedRoles.includes(user.role)) {
+    return <Navigate to="/" replace />;
+  }
+  
+  return <>{children}</>;
+};
+
 // Main App Content
 const AppContent = () => {
   const { user, isAuthenticated, logout } = useAuth();
-
-  // Protected Route Component - moved inside AppContent to have access to AuthProvider
-  const ProtectedRoute = ({ 
-    children, 
-    allowedRoles 
-  }: { 
-    children: React.ReactNode;
-    allowedRoles: string[];
-  }) => {
-    if (!isAuthenticated) {
-      return <Navigate to="/auth/login" replace />;
-    }
-    
-    if (user && !allowedRoles.includes(user.role)) {
-      return <Navigate to="/" replace />;
-    }
-    
-    return <>{children}</>;
-  };
 
   return (
     <div className="min-h-screen bg-background font-sans antialiased">
