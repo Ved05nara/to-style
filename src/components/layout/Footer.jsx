@@ -48,14 +48,14 @@ export const Footer = () => {
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <MapPin className="h-4 w-4" />
-                <span>San Francisco, CA</span>
+                <span>KJSSE, Vidyavihar, Mumbai</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="border-t mt-8 pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 GuestHub. All rights reserved.</p>
+          <p>&copy; 2025 GuestHub. All rights reserved.</p>
         </div>
       </div>
     </footer>
