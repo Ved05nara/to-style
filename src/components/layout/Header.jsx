@@ -8,6 +8,7 @@ export const Header = ({ isAuthenticated, userRole, onLogout }) => {
       case 'guest': return '/guest/dashboard';
       case 'staff': return '/staff/dashboard';
       case 'management': return '/management/dashboard';
+      case 'admin': return '/admin/dashboard';
       default: return '/';
     }
   };

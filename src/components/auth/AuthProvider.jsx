@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
     const mockUser = {
       id: '1',
       email,
-      role: email.includes('guest') ? 'guest' : email.includes('staff') ? 'staff' : 'management',
+      role: email.includes('admin') ? 'admin' : email.includes('guest') ? 'guest' : email.includes('staff') ? 'staff' : 'management',
       name: email.split('@')[0]
     };
     

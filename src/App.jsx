@@ -15,6 +15,13 @@ import StaffDashboard from "./pages/staff/StaffDashboard";
 import ManagementDashboard from "./pages/management/ManagementDashboard";
 import NotFound from "./pages/NotFound";
 
+// Admin Pages
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminBookings from "./pages/admin/AdminBookings";
+import AdminRooms from "./pages/admin/AdminRooms";
+import AdminStaff from "./pages/admin/AdminStaff";
+import { AdminLayout } from "./components/layout/AdminLayout";
+
 const queryClient = new QueryClient();
 
 // Main App Content
@@ -74,6 +81,48 @@ const AppContent = () => {
           element={
             <ProtectedRoute allowedRoles={['management']}>
               <ManagementDashboard />
+            </ProtectedRoute>
+          } 
+        />
+        
+        {/* Admin Routes */}
+        <Route 
+          path="/admin/dashboard" 
+          element={
+            <ProtectedRoute allowedRoles={['admin']}>
+              <AdminLayout>
+                <AdminDashboard />
+              </AdminLayout>
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/admin/bookings" 
+          element={
+            <ProtectedRoute allowedRoles={['admin']}>
+              <AdminLayout>
+                <AdminBookings />
+              </AdminLayout>
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/admin/rooms" 
+          element={
+            <ProtectedRoute allowedRoles={['admin']}>
+              <AdminLayout>
+                <AdminRooms />
+              </AdminLayout>
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/admin/staff" 
+          element={
+            <ProtectedRoute allowedRoles={['admin']}>
+              <AdminLayout>
+                <AdminStaff />
+              </AdminLayout>
             </ProtectedRoute>
           } 
         />
