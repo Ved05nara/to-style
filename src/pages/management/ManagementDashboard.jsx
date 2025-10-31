@@ -41,9 +41,9 @@ const mockRevenueByCategory = [
 ];
 
 const mockRecentBookings = [
-  { id: 1, guest: "Alice Johnson", room: "Executive Suite", checkIn: "2025-01-20", amount: 1047, status: "confirmed" },
-  { id: 2, guest: "Bob Smith", room: "Deluxe Room", checkIn: "2025-01-21", amount: 597, status: "confirmed" },
-  { id: 3, guest: "Carol White", room: "Presidential Suite", checkIn: "2025-01-22", amount: 2994, status: "pending" },
+  { id: 1, guest: "Alice Johnson", room: "Executive Suite", checkIn: "2025-01-20", amount: 10470, status: "confirmed" },
+  { id: 2, guest: "Bob Smith", room: "Deluxe Room", checkIn: "2025-01-21", amount: 5970, status: "confirmed" },
+  { id: 3, guest: "Carol White", room: "Presidential Suite", checkIn: "2025-01-22", amount: 29940, status: "pending" },
 ];
 
 const ManagementDashboard = () => {
@@ -77,7 +77,7 @@ const ManagementDashboard = () => {
               </Badge>
             </div>
             <p className="text-sm opacity-90 mb-1">Monthly Revenue</p>
-            <p className="text-3xl font-bold">${mockAnalytics.revenue.month.toLocaleString()}</p>
+            <p className="text-3xl font-bold">₹{mockAnalytics.revenue.month.toLocaleString()}</p>
           </CardContent>
         </Card>
 
@@ -151,7 +151,7 @@ const ManagementDashboard = () => {
                   <div key={idx} className="space-y-2">
                     <div className="flex items-center justify-between text-sm">
                       <span className="font-medium">{item.category}</span>
-                      <span className="text-muted-foreground">${item.amount.toLocaleString()}</span>
+                      <span className="text-muted-foreground">₹{item.amount.toLocaleString()}</span>
                     </div>
                     <Progress value={item.percentage} />
                     <p className="text-xs text-muted-foreground text-right">{item.percentage}% of total</p>
@@ -175,7 +175,7 @@ const ManagementDashboard = () => {
                       </p>
                     </div>
                     <div className="text-right space-y-1">
-                      <p className="font-bold">${booking.amount}</p>
+                      <p className="font-bold">₹{booking.amount}</p>
                       <Badge className={getStatusColor(booking.status)} variant="outline">
                         {booking.status}
                       </Badge>
@@ -199,7 +199,7 @@ const ManagementDashboard = () => {
                   <p className="text-xs text-success mt-1">↑ 5% from last month</p>
                 </div>
                 <div className="text-center p-6 border rounded-lg">
-                  <p className="text-4xl font-bold text-primary mb-2">$285</p>
+                  <p className="text-4xl font-bold text-primary mb-2">₹5850</p>
                   <p className="text-sm text-muted-foreground">Avg. Daily Rate</p>
                   <p className="text-xs text-success mt-1">↑ 8% from last month</p>
                 </div>
