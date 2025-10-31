@@ -9,19 +9,19 @@ import hotelRoom from "@/assets/hotel-room.jpg";
 const roomTypes = [
   {
     name: "Deluxe Room",
-    price: "$199",
+    price: "₹1999",
     features: ["King Bed", "City View", "32 sqm", "2 Guests"],
     image: hotelRoom
   },
   {
     name: "Executive Suite",
-    price: "$349",
+    price: "₹3499",
     features: ["King Bed", "Ocean View", "48 sqm", "3 Guests"],
     image: hotelRoom
   },
   {
     name: "Presidential Suite",
-    price: "$599",
+    price: "₹5999",
     features: ["2 King Beds", "Panoramic View", "85 sqm", "4 Guests"],
     image: hotelRoom
   }

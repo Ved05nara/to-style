@@ -13,9 +13,9 @@ import { toast } from "sonner";
 import { z } from "zod";
 
 const roomTypes = [
-  { id: "deluxe", name: "Deluxe Room", price: 199 },
-  { id: "executive", name: "Executive Suite", price: 349 },
-  { id: "presidential", name: "Presidential Suite", price: 599 }
+  { id: "deluxe", name: "Deluxe Room", price: 1999 },
+  { id: "executive", name: "Executive Suite", price: 3499 },
+  { id: "presidential", name: "Presidential Suite", price: 5999 }
 ];
 
 const bookingSchema = z.object({
@@ -270,7 +270,7 @@ const BookingPage = () => {
                       <SelectContent>
                         {roomTypes.map((room) => (
                           <SelectItem key={room.id} value={room.id}>
-                            {room.name} - ${room.price}/night
+                            {room.name} - ₹{room.price}/night
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -303,7 +303,7 @@ const BookingPage = () => {
                     placeholder="Any special requirements or preferences..."
                     value={formData.specialRequests}
                     onChange={(e) => handleInputChange("specialRequests", e.target.value)}
-                    className={`min-h-[100px] ${errors.specialRequests ? "border-destructive" : ""}`}
+                    className={`min-h-[100px] ₹{errors.specialRequests ? "border-destructive" : ""}`}
                   />
                   {errors.specialRequests && <p className="text-sm text-destructive">{errors.specialRequests}</p>}
                 </div>
@@ -315,11 +315,11 @@ const BookingPage = () => {
                   <h3 className="text-lg font-semibold">Price Summary</h3>
                   <div className="flex justify-between text-muted-foreground">
                     <span>{nights} night(s)</span>
-                    <span>${roomTypes.find(r => r.id === formData.roomType)?.price || 0} per night</span>
+                    <span>₹{roomTypes.find(r => r.id === formData.roomType)?.price || 0} per night</span>
                   </div>
                   <div className="flex justify-between text-xl font-bold pt-2 border-t">
                     <span>Total</span>
-                    <span>${totalPrice}</span>
+                    <span>₹{totalPrice}</span>
                   </div>
                 </div>
               )}
