@@ -61,7 +61,7 @@ const Landing = () => {
               Experience seamless hotel operations with our comprehensive management platform. From guest bookings to staff coordination.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/auth/register">
+              <Link to="/booking">
                 <Button size="lg" className="w-full sm:w-auto bg-secondary text-secondary-foreground hover:bg-secondary-hover">
                   Book Your Stay
                 </Button>
@@ -175,7 +175,7 @@ const Landing = () => {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/auth/register" className="w-full">
+                  <Link to="/booking" className="w-full">
                     <Button className="w-full">Book Now</Button>
                   </Link>
                 </CardContent>
@@ -214,9 +214,9 @@ const Landing = () => {
           <p className="text-xl mb-8 opacity-90">
             Join thousands of hotels using GuestHub for better operations
           </p>
-          <Link to="/auth/register">
+          <Link to="/booking">
             <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary-hover">
-              Start Your Free Trial
+              Book Your Stay Now
             </Button>
           </Link>
         </div>

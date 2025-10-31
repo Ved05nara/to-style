@@ -10,17 +10,11 @@ import { Footer } from "@/components/layout/Footer";
 // Pages
 import Landing from "./pages/Landing";
 import AuthPage from "./pages/auth/AuthPage";
+import BookingPage from "./pages/guest/BookingPage";
 import GuestDashboard from "./pages/guest/GuestDashboard";
 import StaffDashboard from "./pages/staff/StaffDashboard";
 import ManagementDashboard from "./pages/management/ManagementDashboard";
 import NotFound from "./pages/NotFound";
-
-// Admin Pages
-import AdminDashboard from "./pages/admin/AdminDashboard";
-import AdminBookings from "./pages/admin/AdminBookings";
-import AdminRooms from "./pages/admin/AdminRooms";
-import AdminStaff from "./pages/admin/AdminStaff";
-import { AdminLayout } from "./components/layout/AdminLayout";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +48,7 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/auth/:mode" element={<AuthPage />} />
+        <Route path="/booking" element={<BookingPage />} />
         
         {/* Guest Routes */}
         <Route 
@@ -81,48 +76,6 @@ const AppContent = () => {
           element={
             <ProtectedRoute allowedRoles={['management']}>
               <ManagementDashboard />
-            </ProtectedRoute>
-          } 
-        />
-        
-        {/* Admin Routes */}
-        <Route 
-          path="/admin/dashboard" 
-          element={
-            <ProtectedRoute allowedRoles={['admin']}>
-              <AdminLayout>
-                <AdminDashboard />
-              </AdminLayout>
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/admin/bookings" 
-          element={
-            <ProtectedRoute allowedRoles={['admin']}>
-              <AdminLayout>
-                <AdminBookings />
-              </AdminLayout>
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/admin/rooms" 
-          element={
-            <ProtectedRoute allowedRoles={['admin']}>
-              <AdminLayout>
-                <AdminRooms />
-              </AdminLayout>
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/admin/staff" 
-          element={
-            <ProtectedRoute allowedRoles={['admin']}>
-              <AdminLayout>
-                <AdminStaff />
-              </AdminLayout>
             </ProtectedRoute>
           } 
         />
