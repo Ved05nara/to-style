@@ -1,26 +1,31 @@
 package com.guesthub.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.time.Instant;
 
-@Entity
-@Table(name = "bookings")
+@Document(collection = "bookings")
 public class Booking {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @DBRef
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "room_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @DBRef
     private Room room;
+    
+    private String fullName;
+    private String email;
+    private String phone;
+    private String roomType;
+    private Integer numberOfGuests;
+    private String specialRequests;
+    private Double totalPrice;
+    private Instant bookingDate = Instant.now();
 
     @NotNull
     private LocalDate checkIn;
