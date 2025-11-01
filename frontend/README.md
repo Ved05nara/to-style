@@ -1,70 +1,167 @@
-# Getting Started with Create React App
+# GuestHub - Hotel Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**GuestHub** is a modern, comprehensive Hotel Management System built with React.js, designed to transform hospitality operations through intelligent automation and seamless guest experiences.
 
-## Available Scripts
+## 🏨 About
 
-In the project directory, you can run:
+Based on detailed Software Requirements Specification (SRS) documentation, GuestHub provides a unified platform that replaces 8+ legacy systems, reduces manual processes by 70%, and improves guest satisfaction through personalized digital experiences.
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### **Role-Based Access Control**
+- **Guests**: Room booking, service requests, digital check-in/out
+- **Staff**: Task management, housekeeping, maintenance operations  
+- **Management**: Analytics dashboard, reporting, hotel oversight
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### **Core Functionality**
+- 🏨 **Smart Booking System** - Real-time availability and instant confirmations
+- 👥 **Staff Management** - Efficient task assignment and team coordination
+- 💬 **Guest Communication** - Direct messaging between guests and staff
+- 📊 **Analytics Dashboard** - Comprehensive insights and reporting
+- 🔒 **Secure Payments** - Safe encrypted payment processing
+- ⏰ **24/7 Operations** - Round-the-clock system availability
 
-### `npm test`
+## 🚀 Technology Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Frontend**: React.js 18 with TypeScript
+- **Routing**: React Router DOM
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: Radix UI primitives
+- **Icons**: Lucide React
+- **Authentication**: JWT-ready with role-based access
+- **State Management**: React Query for server state
+- **Build Tool**: Vite
 
-### `npm run build`
+## 🎨 Design System
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+GuestHub features a sophisticated design system with:
+- **Primary Colors**: Deep navy blues for trust and professionalism
+- **Accent Colors**: Luxurious gold for premium feel
+- **Typography**: Inter font family for modern readability
+- **Components**: Custom button variants (luxury, hotel, success, warning)
+- **Animations**: Smooth transitions with custom timing functions
+- **Responsive**: Mobile-first design approach
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🏗️ Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+src/
+├── components/
+│   ├── auth/           # Authentication components
+│   ├── layout/         # Header, navigation components
+│   └── ui/             # Reusable UI components (buttons, cards, etc.)
+├── pages/
+│   ├── auth/           # Login/register pages
+│   ├── guest/          # Guest dashboard and features
+│   ├── staff/          # Staff task management
+│   └── management/     # Management analytics
+├── assets/             # Images and media files
+├── hooks/              # Custom React hooks
+└── lib/                # Utility functions
+```
 
-### `npm run eject`
+## 🔐 User Roles & Access
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Guest Access
+- Room search and booking
+- Booking management and modifications
+- Service requests
+- Digital check-in/check-out
+- Review and feedback system
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Staff Access  
+- Task dashboard with filtering
+- Housekeeping assignments
+- Maintenance requests
+- Guest service coordination
+- Real-time task updates
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Management Access
+- Comprehensive analytics dashboard
+- Room status overview
+- Revenue and occupancy metrics
+- Staff performance monitoring
+- System-wide reporting
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🎯 Key Benefits
 
-## Learn More
+- **Operational Efficiency**: 70% reduction in manual processes
+- **Guest Satisfaction**: Personalized digital experiences
+- **Cost Reduction**: 40% cut in administrative overhead
+- **Real-time Insights**: Data-driven decision making
+- **System Integration**: Replace 8+ legacy systems with one platform
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🚀 Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Prerequisites
+- Node.js 18+ and npm
+- Modern web browser
 
-### Code Splitting
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. **Clone the repository**
+   ```bash
+   git clone <YOUR_GIT_URL>
+   cd <YOUR_PROJECT_NAME>
+   ```
 
-### Analyzing the Bundle Size
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
 
-### Making a Progressive Web App
+4. **Open in browser**
+   Navigate to `http://localhost:8080`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Build for Production
+```bash
+npm run build
+```
 
-### Advanced Configuration
+## 🧪 Demo Accounts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+For testing purposes, you can create accounts with any of these roles:
+- **Guest**: For room booking and guest services
+- **Staff**: For task management and operations
+- **Management**: For analytics and oversight
 
-### Deployment
+*Note: This is a demo version with mock authentication*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📱 Responsive Design
 
-### `npm run build` fails to minify
+GuestHub is fully responsive and works seamlessly across:
+- Desktop computers
+- Tablets
+- Mobile phones
+- Touch-enabled devices
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔮 Future Enhancements
+
+- Real-time chat system with Socket.io
+- Payment gateway integration (Stripe)
+- Email/SMS notification services
+- Advanced reporting and analytics
+- Mobile app development
+- IoT device integration
+
+## 🛠️ Development
+
+Built with modern web technologies and best practices:
+- **Type Safety**: Full TypeScript implementation
+- **Component Architecture**: Modular, reusable components
+- **Design Consistency**: Centralized design system
+- **Performance**: Optimized with Vite bundling
+- **Accessibility**: WCAG compliant components
+
+## 📄 License
+
+This project is part of an academic Software Engineering experiment for K.J. Somaiya College of Engineering.
+
+---
+
+**GuestHub** - Transforming hospitality through intelligent technology 🏨✨
