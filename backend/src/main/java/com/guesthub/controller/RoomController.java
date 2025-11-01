@@ -21,7 +21,7 @@ public class RoomController {
     public List<Room> list() { return roomService.findAll(); }
 
     @GetMapping("/{id}")
-    public Room get(@PathVariable Long id) { return roomService.get(id); }
+    public Room get(@PathVariable String id) { return roomService.get(id); }
 
     @PostMapping
     @PreAuthorize("hasAnyRole('ADMIN','MANAGEMENT')")
@@ -31,13 +31,13 @@ public class RoomController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','MANAGEMENT')")
-    public Room update(@PathVariable Long id, @Valid @RequestBody Room room) {
+    public Room update(@PathVariable String id, @Valid @RequestBody Room room) {
         return roomService.update(id, room);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
+    public ResponseEntity<?> delete(@PathVariable String id) {
         roomService.delete(id);
         return ResponseEntity.noContent().build();
     }
