@@ -25,8 +25,11 @@ public class BookingService {
     }
 
     public Booking create(Booking b, String email) {
-        User u = userRepository.findByEmail(email).orElseThrow();
-        b.setUser(u);
+        // Try to find user, but allow guest bookings without user account
+        User u = userRepository.findByEmail(email).orElse(null);
+        if (u != null) {
+            b.setUser(u);
+        }
         return bookingRepository.save(b);
     }
 
