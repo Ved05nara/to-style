@@ -43,10 +43,9 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .cors(Customizer.withDefaults())
-            .headers(h -> h.frameOptions(f -> f.disable())) // for H2 console
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/h2-console/**").permitAll()
+                .requestMatchers("/api/auth/**", "/api/bookings/**", "/api/v3/api-docs/**", "/api/swagger-ui/**", "/api/swagger-ui.html").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/rooms/**").permitAll()
                 .anyRequest().authenticated()
             )
