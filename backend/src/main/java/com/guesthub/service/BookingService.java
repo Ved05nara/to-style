@@ -30,5 +30,5 @@ public class BookingService {
         return bookingRepository.save(b);
     }
 
-    public void delete(Long id) { bookingRepository.deleteById(id); }
+    public void delete(String id) { bookingRepository.deleteById(id); }
 }
