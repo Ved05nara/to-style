@@ -26,9 +26,10 @@ public class BookingController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAnyRole('GUEST','STAFF','MANAGEMENT','ADMIN')")
     public ResponseEntity<Booking> create(@Valid @RequestBody Booking booking, Authentication auth) {
-        return ResponseEntity.ok(bookingService.create(booking, auth.getName()));
+        // Support both authenticated and guest bookings
+        String userEmail = (auth != null) ? auth.getName() : booking.getEmail();
+        return ResponseEntity.ok(bookingService.create(booking, userEmail));
     }
 
     @DeleteMapping("/{id}")
