@@ -24,8 +24,8 @@ public class Room {
     @NotBlank
     private String status = "AVAILABLE"; // AVAILABLE, MAINTENANCE, OCCUPIED
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
     public String getNumber() { return number; }
     public void setNumber(String number) { this.number = number; }
