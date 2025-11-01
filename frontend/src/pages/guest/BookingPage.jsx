@@ -106,8 +106,8 @@ const BookingPage = () => {
     };
 
     try {
-      // TODO: Replace with your actual Spring Boot API endpoint
-      const API_ENDPOINT = "YOUR_SPRING_BOOT_API_URL/api/bookings";
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8001/api';
+      const API_ENDPOINT = `${API_BASE_URL}/bookings`;
       
       const response = await fetch(API_ENDPOINT, {
         method: "POST",
