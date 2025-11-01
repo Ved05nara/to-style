@@ -13,8 +13,8 @@ public class RoomService {
 
     public List<Room> findAll() { return roomRepository.findAll(); }
     public Room create(Room r) { return roomRepository.save(r); }
-    public Room get(Long id) { return roomRepository.findById(id).orElseThrow(); }
-    public Room update(Long id, Room payload) {
+    public Room get(String id) { return roomRepository.findById(id).orElseThrow(); }
+    public Room update(String id, Room payload) {
         Room r = get(id);
         r.setNumber(payload.getNumber());
         r.setType(payload.getType());
@@ -23,5 +23,5 @@ public class RoomService {
         r.setStatus(payload.getStatus());
         return roomRepository.save(r);
     }
-    public void delete(Long id) { roomRepository.deleteById(id); }
+    public void delete(String id) { roomRepository.deleteById(id); }
 }
