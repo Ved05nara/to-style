@@ -16,11 +16,11 @@ public class AuthDtos {
     }
     public static class AuthResponse {
         public String token;
-        public Long userId;
+        public String userId;
         public String email;
         public String name;
         public String role;
-        public AuthResponse(String token, Long userId, String email, String name, String role) {
+        public AuthResponse(String token, String userId, String email, String name, String role) {
             this.token = token; this.userId = userId; this.email = email; this.name = name; this.role = role;
         }
     }
