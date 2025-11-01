@@ -33,7 +33,7 @@ public class BookingController {
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','MANAGEMENT')")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
+    public ResponseEntity<?> delete(@PathVariable String id) {
         bookingService.delete(id);
         return ResponseEntity.noContent().build();
     }
