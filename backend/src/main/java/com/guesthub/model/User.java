@@ -14,6 +14,7 @@ public class User {
 
     @Email
     @NotBlank
+    @Indexed(unique = true)
     private String email;
 
     @NotBlank
